@@ -10,7 +10,7 @@ const {Text, Title} = Typography;
 const { Header, Footer, Sider, Content } = Layout;
 const { Search } = Input;
 
-export class LoginPage extends Component {
+export class LandingPage extends Component {
    constructor(props){
       super(props)
       this.state={
