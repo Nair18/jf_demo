@@ -1,0 +1,33 @@
+.landing-layout{
+  background-color: white;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.header-row{
+  background-color: white;
+}
+
+.login-layout{
+  background-color: white;
+}
+.header-col{
+  overflow: auto;
+  padding: 1% 3% 1% 8%;
+}
+
+
+.card-container .ant-tabs.ant-tabs-card .ant-tabs-card-bar .ant-tabs-tab{
+  backgound: white;
+  width: 20vh;
+}
+
+.card-container .ant-tabs.ant-tabs-card .ant-tabs-card-bar .ant-tabs-tab-active {
+  border-color: #e0e2e4;
+  background: #e0e2e4;
+}
+
+.site-layout-content {
+  padding: 24px;
+  min-height: 280px;
+}
