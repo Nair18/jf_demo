@@ -39,7 +39,7 @@ The whole project is a simple crud app, mostly ```GET``` calls. The most interes
   7. This whole process is handled in the react app.
   
 # TODO
-1. Unit tests for backend. Since didnt have enough bandwidth.
+1. Unit tests for backend. Since I didnt have enough bandwidth.
 2. Unit tests for frontend. 
 
 # Links
