@@ -4,8 +4,8 @@
 1. Get all the public repositories of any valid username on github.
 2. Get all the followers of a user sorted by name.
 3. Get the most popular follower of a user among all.
-4. Create repository(requires oauth)
-5. Edit description of the respository (requires oauth).
+4. Create repository(requires access token)
+5. Edit description of the respository (requires access token).
 
 ## Getting started
 0. You might face PYTHONPATH issue. Inside ```/SampleProject``` folder do ```export PYTHONPATH=$PWD``` 
