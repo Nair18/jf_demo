@@ -27,8 +27,8 @@ Check out ```SampleProject/GitFetch/views.py``` for the 'GET' rest apis. For cli
 
 ## Interesting part of the application
 The whole project is a simple crud app, mostly ```GET``` calls. The most interesting part is the ```POST``` and ```PATCH``` that happen for create and edit repository for an authorized user.
-  ### What happens during Oauth?
-  If you visit github developer docs(link at the end) for building oauth application, its stats following steps - \
+  ### Integrating Oauth and using it
+  Follow below steps:
   1. Create your own oauth application by visiting ```/developer settings/Oauth apps``` from your github settings page.
   2. Mention the homepage url and the callback url(a path of your application github redirects, after user clicks authorize).
   3. Thats it, hit enter to create the oauth app. You will get your client id and client secret.
