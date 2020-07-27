@@ -12,8 +12,7 @@
 1. Create virtual env ```pipenv shell```.
 2. run ```pipenv install``` - will install all the necessary lib from pipfile
 3. start django application - ```python manage.py runserver```. If successful, Try this url on you browser ```http://localhost:8000/repos/Nair18/```, if you get a      bunch of jsons on your screen then that's a green light.
-4. run ```npm install``` for setting react app.
-4.1 If you see error, try removing the ```package-lock.json``` file and try again.
+4. run ```npm install``` for setting react app. If you see error, try removing the ```package-lock.json``` file and try again.
 5. run ```npm start``` for starting the app
 6. No db involved.
 
