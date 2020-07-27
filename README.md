@@ -17,13 +17,13 @@
 6. No db involved.
 
 ## There are in total 5 api endpoints in this project.
-1. GET '/repos/:username' - served from Django application
-2. GET '/followers/:username'- served from Django application
-3. GET '/popular_follower/:username'- served from Django application
-4. POST '/repos/:owner' - handled from react app
-5. PATCH '/repos/:owner/:repo' - handled from react app
+1. GET 'localhost:8000/repos/:username'
+2. GET 'localhost:8000/followers/:username'
+3. GET 'localhost:8000/popular_follower/:username'
+4. POST 'https://api.github.com/repos/:owner'
+5. PATCH 'https://api.github.com/repos/:owner/:repo'
 
-Check out ```SampleProject/GitFetch/views.py``` for the 'GET' rest apis. For client, checkout the ```client/antd-demo/src``` folder. This is were the magic happens!
+```1,2,3``` are served from Django application running on port 8000 while ```4,5``` are handled directly from the react app running on port 3000. Check out ```SampleProject/GitFetch/views.py``` for the 'GET' rest apis. For client, checkout the ```client/antd-demo/src``` folder. This is were the magic happens!
 
 ## Interesting part of the application
 The whole project is a simple crud app, mostly ```GET``` calls. The most interesting part is the ```POST``` and ```PATCH``` that happen for create and edit repository for an authorized user.
