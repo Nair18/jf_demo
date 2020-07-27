@@ -45,11 +45,11 @@ export class Authorizing extends Component {
 
    render(){
     return(
-      (this.state.redirect ? <Redirect to='/user'/> : 
+      (this.state.redirect ? <Redirect to='/direct'/> : 
       <Layout style={{backgroundColor: '#fff'}}>
       <Result
         icon={<SmileOutlined />}
-        title="Authorizing, Please wait. Redirect .... There is cors issue. For demo please use the direct link on the home page navigation bar"
+        title="Authorizing, Please wait. Redirect ...."
       />
       </Layout>)
     );

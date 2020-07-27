@@ -31,6 +31,9 @@ export class LandingPage extends Component {
       }
       let api = new ApiHandler(user_name, this.state.select);
       let response = api.route_requests()
+      if(response == undefined){
+        return message.warning("Rate limit exceeded.")
+      }
       console.log(response)
       response.then(res => {
         console.log(res)
@@ -69,7 +72,7 @@ export class LandingPage extends Component {
         <Header>
           <div className="logo" />
           <Menu theme="dark" mode="horizontal" style={{textAlign: 'right'}} >
-            <Menu.Item key="1"><a href={this.state.url}>Sign in</a></Menu.Item>
+            <Menu.Item key="1"><a href={this.state.url}>Sign in with github</a></Menu.Item>
             <Menu.Item key="2"><a href='/direct'>Direct Access</a></Menu.Item>
           </Menu>
         </Header>
@@ -108,7 +111,7 @@ export class LandingPage extends Component {
                 onChange: page => {
                   console.log(page);
                 },
-                pageSize: 5,
+                pageSize: 3,
             }}  
             dataSource={this.state.listData}
     

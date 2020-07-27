@@ -18,6 +18,7 @@ export class DirectPage extends Component {
         repoData: [],
         visible: false,
         visible2: false,
+        username: 'Nair18',
         repo_name: "",
         value: "",
         title: ""
@@ -25,28 +26,51 @@ export class DirectPage extends Component {
    }
 
    componentDidMount(){
-    //const token = window.localStorage.getItem('token') 
-    fetch(constants.base_url + '/repos/Nair18/', {
+    const token = window.localStorage.getItem('token')
+    //let username = 'Nair18';
+    if(token != null){
+      fetch(constants.base_url + `/user`, {
+        method: 'get',
+        headers: {
+          'Accept': 'application/vnd.github.v3+json',
+          'Content-Type': 'application/json',
+        }
+      }).then(response => {
+        if(response.status != 200){
+          message.danger('something went wrong')
+          return;
+        }
+        else{
+          response.json().then(res => {
+            if(res === undefined || res instanceof Array === false){
+              message.warning(res['error'])
+              return;
+            }
+            console.log(res)
+            this.setState({username: res})
+          })
+        }
+      })
+    }
+
+    fetch(constants.base_url + `/repos/${this.state.username}/`, {
       method: 'get',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
       }
     }).then(response => {
-      if(response.status != 200){
-        message.danger('something went wrong')
-        return;
-      }
-      else{
         response.json().then(res => {
+          if(res === undefined || res instanceof Array === false){
+            message.warning(res['error'])
+            return;
+          }
           console.log(res)
           this.setState({repoData: res})
         })
-      }
     })
    }
    handleOk = () => {
-      message.info("Doesnt work, Sorry!!!!")
       let token = constants.at
       fetch(constants.github_url + `/repos/Nair18/${this.state.title}`, {
         method: 'PATCH',
@@ -58,24 +82,30 @@ export class DirectPage extends Component {
           description: this.state.value,
         })
       }).then(response => {
+        if(response.status === 401){
+          message.warning("Bad credentials. No auth token")
+        }
         this.setState({visible: false})
         response.json().then(res => console.log(res))
       })
   }
 
   handleOk2 = () => {
-      message.info("Doesnt work, Sorry!!!!")
       let token = constants.at
-      fetch(constants.github_url + `/repos/Nair18/${this.state.title}`, {
-        method: 'PATCH',
+      fetch(constants.github_url + `/repos/Nair18`, {
+        method: 'POST',
         headers: {
           'Content-Type':'application/x-www-form-urlencoded',
           'Authorization': `token ${token}`
         },
         body: JSON.stringify({
+          name: this.state.repo_name,
           description: this.state.value,
         })
       }).then(response => {
+        if(response.status === 401){
+          message.warning("Bad credentials. No auth token")
+        }
         this.setState({visible: false})
         response.json().then(res => console.log(res))
       })
